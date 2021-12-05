@@ -12,12 +12,18 @@ let package = Package(
         .library(
             name: "HJChartView",
             targets: ["HJChartView"]),
+        .library(
+            name: "HJGaugeView",
+            targets: ["HJGaugeView"]),
     ],
     dependencies: [
     ],
     targets: [
         .target(
             name: "HJChartView",
+            dependencies: []),
+        .target(
+            name: "HJGaugeView",
             dependencies: []),
     ]
 )
