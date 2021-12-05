@@ -8,14 +8,12 @@
 import SwiftUI
 
 
-public struct HJBarChartView<Content: View>: View {
+public struct HJBarChartView: View {
     
     let elements: [HJChartElement]
-    let content: () -> Content
     
-    public init(elements: [HJChartElement], content: @escaping () -> Content) {
+    public init(elements: [HJChartElement]) {
         self.elements = elements
-        self.content = content
     }
     
     public var body: some View {
@@ -113,20 +111,14 @@ struct HJBarChartView_Previews: PreviewProvider {
         
         Group {
             
-            HJBarChartView(elements: HJBarChartView_Previews.elements) {
-                Text("Small")
-            }
-            .previewLayout(.fixed(width: 200, height: 80))
+            HJBarChartView(elements: HJBarChartView_Previews.elements)
+                .previewLayout(.fixed(width: 200, height: 80))
             
-            HJBarChartView(elements: HJBarChartView_Previews.elements) {
-                Text("Medium")
-            }
-            .previewLayout(.fixed(width: 300, height: 90))
+            HJBarChartView(elements: HJBarChartView_Previews.elements)
+                .previewLayout(.fixed(width: 300, height: 90))
             
-            HJBarChartView(elements: HJBarChartView_Previews.elements) {
-                Text("Large")
-            }
-            .previewLayout(.fixed(width: 400, height: 100))
+            HJBarChartView(elements: HJBarChartView_Previews.elements)
+                .previewLayout(.fixed(width: 400, height: 100))
             
         }
         
