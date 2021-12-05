@@ -61,7 +61,7 @@ struct HJRingChartSection: View {
         
         Circle()
             .trim(from: CGFloat(startValue), to: CGFloat(endValue))
-            .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .butt, lineJoin: .round))
+            .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .butt, lineJoin: .round))
             .foregroundColor(color)
             .rotationEffect(Angle(degrees: 270.0))
             .padding()
@@ -106,35 +106,17 @@ struct HJRingChartView_Previews: PreviewProvider {
         Group {
             
             HJRingChartView(elements: HJRingChartView_Previews.elements) {
-                VStack {
-                    Text("123")
-                        .font(.system(size: 25.0, weight: .bold, design: .default))
-                        .italic()
-                        //.foregroundColor(Color("Background_Medium"))
-                    Text("Shots")
-                }
+                Text("Small")
             }
             .previewLayout(.fixed(width: 200, height: 150))
             
             HJRingChartView(elements: HJRingChartView_Previews.elements) {
-                VStack {
-                    Text("123")
-                        .font(.system(size: 25.0, weight: .bold, design: .default))
-                        .italic()
-                        //.foregroundColor(Color("Background_Medium"))
-                    Text("Shots")
-                }
+                Text("Medium")
             }
             .previewLayout(.fixed(width: 300, height: 200))
             
             HJRingChartView(elements: HJRingChartView_Previews.elements) {
-                VStack {
-                    Text("123")
-                        .font(.system(size: 25.0, weight: .bold, design: .default))
-                        .italic()
-                        //.foregroundColor(Color("Background_Medium"))
-                    Text("Shots")
-                }
+                Text("Large")
             }
             .previewLayout(.fixed(width: 400, height: 300))
             
