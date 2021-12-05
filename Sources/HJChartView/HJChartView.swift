@@ -7,16 +7,12 @@
 
 import SwiftUI
 
-struct HJChartView: View {
+public struct HJChartView {
+    
+    static var colors = [
+        Color(red: 72/255.0, green: 176/255.0, blue: 148/255.0),
+        Color(red: 159/255.0, green: 92/255.0, blue: 92/255.0),
+        Color(red: 186/255.0, green: 169/255.0, blue: 61/255.0)
+    ]
 
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-
-    }
-}
-
-struct HJChartView_Previews: PreviewProvider {
-    static var previews: some View {
-        HJChartView()
-    }
 }

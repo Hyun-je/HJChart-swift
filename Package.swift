@@ -24,6 +24,6 @@ let package = Package(
             dependencies: []),
         .target(
             name: "HJRingChartView",
-            dependencies: []),
+            dependencies: ["HJChartView"]),
     ]
 )
