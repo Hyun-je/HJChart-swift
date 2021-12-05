@@ -11,10 +11,10 @@ public struct HJChartElement: Hashable {
     
     public let title: String
     public let value: Float
-    public let color: Color
+    public let color: Color?
     
     
-    public init(title: String, value: Float, color: Color) {
+    public init(title: String, value: Float, color: Color? = nil) {
         self.title = title
         self.value = value
         self.color = color

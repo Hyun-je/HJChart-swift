@@ -27,8 +27,9 @@ public struct HJBarChartView<Content: View>: View {
                         
                         let element = self.elements[index]
                         let width = element.value * Float(geometry.size.width)
+                        let color = element.color ?? HJChartView.colors[index % HJChartView.colors.count]
                         
-                        HJBarChartSection(width: width, color: element.color)
+                        HJBarChartSection(width: width, color: color)
                     }
                     
                 }
@@ -39,8 +40,12 @@ public struct HJBarChartView<Content: View>: View {
             // Legend
             HStack(alignment: .center) {
                 
-                ForEach(elements, id: \.self) { element in
-                    HJBarChartLegend(title: element.title, color: element.color)
+                ForEach(elements.indices, id: \.self) { index in
+                    
+                    let element = self.elements[index]
+                    let color = element.color ?? HJChartView.colors[index % HJChartView.colors.count]
+                    
+                    HJBarChartLegend(title: element.title, color: color)
                 }
                 
             }
@@ -92,9 +97,10 @@ struct HJBarChartLegend: View {
 struct HJBarChartView_Previews: PreviewProvider {
     
     static let elements = [
-        HJChartElement(title: "Ground", value: 0.3, color: Color(red: 72/255.0, green: 176/255.0, blue: 148/255.0)),
-        HJChartElement(title: "Volley", value: 0.5, color: Color(red: 159/255.0, green: 92/255.0, blue: 92/255.0)),
-        HJChartElement(title: "Serve", value: 0.2, color: Color(red: 186/255.0, green: 169/255.0, blue: 61/255.0)),
+        HJChartElement(title: "Class0", value: 0.1),
+        HJChartElement(title: "Class1", value: 0.2),
+        HJChartElement(title: "Class2", value: 0.4),
+        HJChartElement(title: "Class3", value: 0.3),
     ]
     
     
@@ -103,17 +109,17 @@ struct HJBarChartView_Previews: PreviewProvider {
         
         Group {
             
-            HJBarChartView(elements: HJRingChartView_Previews.elements) {
+            HJBarChartView(elements: HJBarChartView_Previews.elements) {
                 Text("Small")
             }
             .previewLayout(.fixed(width: 200, height: 80))
             
-            HJBarChartView(elements: HJRingChartView_Previews.elements) {
+            HJBarChartView(elements: HJBarChartView_Previews.elements) {
                 Text("Medium")
             }
             .previewLayout(.fixed(width: 300, height: 90))
             
-            HJBarChartView(elements: HJRingChartView_Previews.elements) {
+            HJBarChartView(elements: HJBarChartView_Previews.elements) {
                 Text("Large")
             }
             .previewLayout(.fixed(width: 400, height: 100))

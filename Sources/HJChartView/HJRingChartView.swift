@@ -26,8 +26,9 @@ public struct HJRingChartView<Content: View>: View {
                     let element = self.elements[index]
                     let startValue = self.elements[0..<index].reduce(0) { $0 + $1.value }
                     let endValue = startValue + element.value
+                    let color = element.color ?? HJChartView.colors[index % HJChartView.colors.count]
                     
-                    HJRingChartSection(startValue: startValue, endValue: endValue, color: element.color)
+                    HJRingChartSection(startValue: startValue, endValue: endValue, color: color)
                 }
                 
                 content()
@@ -37,8 +38,12 @@ public struct HJRingChartView<Content: View>: View {
             // Legend
             HStack(alignment: .center) {
                 
-                ForEach(elements, id: \.self) { element in
-                    HJRingChartLegend(title: element.title, color: element.color)
+                ForEach(elements.indices, id: \.self) { index in
+                    
+                    let element = self.elements[index]
+                    let color = element.color ?? HJChartView.colors[index % HJChartView.colors.count]
+                    
+                    HJRingChartLegend(title: element.title, color: color)
                 }
                 
             }
@@ -94,9 +99,10 @@ struct HJRingChartLegend: View {
 struct HJRingChartView_Previews: PreviewProvider {
     
     static let elements = [
-        HJChartElement(title: "Ground", value: 0.3, color: Color(red: 72/255.0, green: 176/255.0, blue: 148/255.0)),
-        HJChartElement(title: "Volley", value: 0.5, color: Color(red: 159/255.0, green: 92/255.0, blue: 92/255.0)),
-        HJChartElement(title: "Serve", value: 0.2, color: Color(red: 186/255.0, green: 169/255.0, blue: 61/255.0)),
+        HJChartElement(title: "Class0", value: 0.1),
+        HJChartElement(title: "Class1", value: 0.2),
+        HJChartElement(title: "Class2", value: 0.4),
+        HJChartElement(title: "Class3", value: 0.3),
     ]
     
     
