@@ -1,1 +1,3 @@
-# HJChart-swift
+# HJChartView
+
+A description of this package.
