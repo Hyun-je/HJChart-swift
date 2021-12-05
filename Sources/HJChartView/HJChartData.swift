@@ -15,8 +15,4 @@ public struct HJChartData {
         self.elements = elements
     }
     
-    public mutating func addElement( _ element: HJChartElement) {
-        elements.append(element)
-    }
-    
 }

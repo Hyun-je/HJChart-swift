@@ -12,9 +12,6 @@ let package = Package(
         .library(
             name: "HJChartView",
             targets: ["HJChartView"]),
-        .library(
-            name: "HJRingChartView",
-            targets: ["HJRingChartView"]),
     ],
     dependencies: [
     ],
@@ -22,8 +19,5 @@ let package = Package(
         .target(
             name: "HJChartView",
             dependencies: []),
-        .target(
-            name: "HJRingChartView",
-            dependencies: ["HJChartView"]),
     ]
 )
