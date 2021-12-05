@@ -13,6 +13,10 @@ public struct HJBarChartView<Content: View>: View {
     let elements: [HJChartElement]
     let content: () -> Content
     
+    public init(elements: [HJChartElement], content: @escaping () -> Content) {
+        self.elements = elements
+        self.content = content
+    }
     
     public var body: some View {
         
