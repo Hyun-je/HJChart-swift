@@ -17,7 +17,7 @@ public struct HJBarChartView<Content: View>: View {
     public var body: some View {
         
         VStack {
-            
+
             // Chart
             GeometryReader { geometry in
                 
@@ -34,6 +34,7 @@ public struct HJBarChartView<Content: View>: View {
                 }
                 
             }
+            .padding([.leading, .trailing, .bottom])
             
             // Legend
             HStack(alignment: .center) {
@@ -43,7 +44,7 @@ public struct HJBarChartView<Content: View>: View {
                 }
                 
             }
-                
+
         }
         
     }
@@ -61,7 +62,6 @@ struct HJBarChartSection: View {
         
         Rectangle()
             .foregroundColor(color)
-            .padding(0)
             .frame(width: CGFloat(width))
         
     }
@@ -106,17 +106,17 @@ struct HJBarChartView_Previews: PreviewProvider {
             HJBarChartView(elements: HJRingChartView_Previews.elements) {
                 Text("Small")
             }
-            .previewLayout(.fixed(width: 200, height: 60))
+            .previewLayout(.fixed(width: 200, height: 80))
             
             HJBarChartView(elements: HJRingChartView_Previews.elements) {
                 Text("Medium")
             }
-            .previewLayout(.fixed(width: 300, height: 60))
+            .previewLayout(.fixed(width: 300, height: 90))
             
             HJBarChartView(elements: HJRingChartView_Previews.elements) {
                 Text("Large")
             }
-            .previewLayout(.fixed(width: 400, height: 60))
+            .previewLayout(.fixed(width: 400, height: 100))
             
         }
         
