@@ -28,12 +28,12 @@ public struct HJRingGaugeView<Content: View>: View {
             ZStack(alignment: .center) {
                 
                 Circle()
-                    .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
+                    .stroke(style: StrokeStyle(lineWidth: 15, lineCap: .round, lineJoin: .round))
                     .foregroundColor(color.opacity(0.1))
                     .rotationEffect(Angle(degrees: 270.0))
                 Circle()
                     .trim(from: CGFloat(0), to: CGFloat(value))
-                    .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
+                    .stroke(style: StrokeStyle(lineWidth: 15, lineCap: .round, lineJoin: .round))
                     .foregroundColor(color)
                     .rotationEffect(Angle(degrees: 270.0))
                 

@@ -35,6 +35,7 @@ public struct HJBarChartView: View {
                     }
                     
                 }
+                .cornerRadius(geometry.size.height / 5)
                 
             }
             .padding([.leading, .trailing, .bottom])
