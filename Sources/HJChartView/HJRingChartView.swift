@@ -11,10 +11,12 @@ import SwiftUI
 public struct HJRingChartView<Content: View>: View {
     
     let elements: [HJChartElement]
+    let showLegend: Bool
     let content: () -> Content
     
-    public init(elements: [HJChartElement], content: @escaping () -> Content) {
+    public init(elements: [HJChartElement], showLegend: Bool = true, content: @escaping () -> Content) {
         self.elements = elements
+        self.showLegend = showLegend
         self.content = content
     }
     
@@ -40,16 +42,18 @@ public struct HJRingChartView<Content: View>: View {
             }
             
             // Legend
-            HStack(alignment: .center) {
-                
-                ForEach(elements.indices, id: \.self) { index in
+            if showLegend {
+                HStack(alignment: .center) {
                     
-                    let element = self.elements[index]
-                    let color = element.color ?? HJChartView.colors[index % HJChartView.colors.count]
+                    ForEach(elements.indices, id: \.self) { index in
+                        
+                        let element = self.elements[index]
+                        let color = element.color ?? HJChartView.colors[index % HJChartView.colors.count]
+                        
+                        HJRingChartLegend(title: element.title, color: color)
+                    }
                     
-                    HJRingChartLegend(title: element.title, color: color)
                 }
-                
             }
                 
         }

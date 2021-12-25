@@ -11,9 +11,11 @@ import SwiftUI
 public struct HJBarChartView: View {
     
     let elements: [HJChartElement]
+    let showLegend: Bool
     
-    public init(elements: [HJChartElement]) {
+    public init(elements: [HJChartElement], showLegend: Bool = true) {
         self.elements = elements
+        self.showLegend = showLegend
     }
     
     public var body: some View {
@@ -38,19 +40,21 @@ public struct HJBarChartView: View {
                 .cornerRadius(geometry.size.height / 5)
                 
             }
-            .padding([.leading, .trailing, .bottom])
-            
+
             // Legend
-            HStack(alignment: .center) {
-                
-                ForEach(elements.indices, id: \.self) { index in
+            if showLegend {
+                HStack(alignment: .center) {
                     
-                    let element = self.elements[index]
-                    let color = element.color ?? HJChartView.colors[index % HJChartView.colors.count]
+                    ForEach(elements.indices, id: \.self) { index in
+                        
+                        let element = self.elements[index]
+                        let color = element.color ?? HJChartView.colors[index % HJChartView.colors.count]
+                        
+                        HJBarChartLegend(title: element.title, color: color)
+                    }
                     
-                    HJBarChartLegend(title: element.title, color: color)
                 }
-                
+                .padding([.top], 7)
             }
 
         }
